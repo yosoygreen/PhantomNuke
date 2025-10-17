@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenadores Pokémon</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fondos_animados_tipos.css">
+  <link rel="icon" href="img/icoico.png" type="image/png">
+
+</head>
+<body>
+  <header class="topbar">
+    <div>LIDERES Y ALTO MANDO <a href="index.html" class="link">Volver a la pokedex</a></div>
+    <button id="alternarBtn">Alternar</button>
+  </header>
+
+  <div id="slider-container">
+    <div id="arrow-left" class="arrow">←</div>
+    <main id="entrenador-view"></main>
+    <div id="arrow-right" class="arrow">→</div>
+  </div>
+
+  <script src="js/pokemon-data.js"></script>
+  <script src="js/team.js"></script>
+  <script src="js/entrenadores.js"></script>
+  <script src="js/papp.js"></script>
+  <audio id="sonido-flecha" src="https://www.soundjay.com/buttons/sounds/button-3.mp3" preload="auto"></audio>
+<audio id="sonido-alternar" src="https://www.soundjay.com/buttons/sounds/button-4.mp3" preload="auto"></audio>
+
+</body>
+</html>
