@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movedex – Sonorithmia</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="img/icoico.png" type="image/png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="mdx-header">
+    <div class="container">
+      <a class="backlink" href="index.html">← Volver a Pokédex</a>
+      <h1>Movedex</h1>
+      <input id="mdxSearch" class="mdx-search" type="text" placeholder="Buscar por nombre o ID..." />
+      <select id="mdxType" class="mdx-filter">
+        <option value="">Tipo: Todos</option>
+      </select>
+      <select id="mdxCat" class="mdx-filter">
+        <option value="">Categoría: Todas</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="mdxList" class="mdx-list"></div>
+  </main>
+
+  <script src="js/movimientos.js"></script>
+  <script src="js/movedex.js"></script>
+</body>
+</html>
