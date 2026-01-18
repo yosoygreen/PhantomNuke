@@ -2233,7 +2233,7 @@ const PokemonData = [
 },
 { name: "Mixyem", 
   types: ["Sonido","Acero"], 
-  image: "img/Alien3.png", 
+  image: "img/alien3.png", 
   description: "Mixyem es conocido por realizar pseudos recitales hipnóticos, donde utiliza su maestría en el control del sonido para influir en las mentes de aquellos que lo escuchan. En estas actuaciones, ha sido documentado que poblaciones enteras desaparecen, sumidas en un trance hipnótico inducido por las ondas sonoras de Mixyem.", 
   stats: { hp: 80, attack: 80, defense: 130, SpAttack: 80, SpDef: 95, speed: 45, Total: 510 }, 
   height: 0.3, 
