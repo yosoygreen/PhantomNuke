@@ -456,4 +456,88 @@ return `
     chartGrid.innerHTML = ''
     chartGrid.appendChild(tbl)
   }
-  
+  function getEvolutionsFrom(pokemonName) {
+  const rules = window.EvolutionRules || {};
+  const out = [];
+
+  for (const key in rules) {
+    if (!key.includes(">")) continue;
+
+    const cleanKey = key.split("#")[0]; // por si hay variantes
+    const [from, to] = cleanKey.split(">");
+
+    if (from === pokemonName) {
+      out.push({ from, to, rule: rules[key] });
+    }
+  }
+  return out;
+}
+
+function getPreEvolutionsTo(pokemonName) {
+  const rules = window.EvolutionRules || {};
+  const ins = [];
+
+  for (const key in rules) {
+    if (!key.includes(">")) continue;
+
+    const cleanKey = key.split("#")[0];
+    const [from, to] = cleanKey.split(">");
+
+    if (to === pokemonName) {
+      ins.push({ from, to, rule: rules[key] });
+    }
+  }
+  return ins;
+}
+
+function ruleToText(rule) {
+  if (!rule) return "";
+  if (rule.no_evo) return "No evoluciona";
+
+  switch (rule.method) {
+    case "level":
+      return `Nivel ${rule.level}` +
+        (rule.time ? ` · ${rule.time}` : "") +
+        (rule.weather ? ` · clima ${rule.weather}` : "") +
+        (rule.location ? ` · ${rule.location}` : "");
+
+    case "item":
+      return `Usar ${rule.item}`;
+
+    case "trade":
+      return "Intercambio";
+
+    case "trade_item":
+      return `Intercambio con ${rule.item}` +
+        (rule.alternative ? ` o ${rule.alternative}` : "");
+
+    case "level_hold":
+      return `Subir de nivel sosteniendo ${rule.item}` +
+        (rule.level ? ` (nivel ${rule.level})` : "") +
+        (rule.time ? ` · ${rule.time}` : "");
+
+    case "friendship":
+      if (typeof rule.value === "number") return `Amistad ${rule.value}`;
+      return `Alta amistad` +
+        (rule.time ? ` · ${rule.time}` : "") +
+        (rule.item ? ` · ${rule.item}` : "");
+
+    case "move":
+      return `Subir de nivel con ${rule.move}`;
+
+    case "friendship_move":
+      return `Alta amistad + mov. tipo ${rule.moveType}`;
+
+    case "location":
+      return `Subir de nivel en ${rule.location}`;
+
+    case "item_gender":
+      return `Usar ${rule.item} (${rule.gender})`;
+
+    case "special":
+      return rule.details || "Condición especial";
+
+    default:
+      return "Condición especial";
+  }
+}
